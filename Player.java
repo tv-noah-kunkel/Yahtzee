@@ -8,7 +8,7 @@ public class Player {
     public Player(String name){
         this.name = name;                                                                                                                                                                                                                                                                                                                                                          
     }
-
+    DicePrinter DicePrinter = new DicePrinter();
     public void playTurn(){
     for(int i = 0; i < 5; i++)
     {
@@ -17,7 +17,7 @@ public class Player {
         
         hand.add(die);
     }
-    DiePrinter.print(hand);
+    DicePrinter.print(hand);
     }
                                                                
 }
