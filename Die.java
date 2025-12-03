@@ -12,6 +12,7 @@ public class Die {
 
     public int getValue()
     {
+        int x = 1;
         return value;
     }
 
