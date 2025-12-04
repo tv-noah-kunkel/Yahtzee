@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Player {
     private  ArrayList<Die> hand = new ArrayList<>();
     private ArrayList<Die> heldDice = new ArrayList<>();
+    private ArrayList<Die> finalDice = new ArrayList<>();
     private String name;
 
     public Player(String name){
