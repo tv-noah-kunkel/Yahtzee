@@ -6,24 +6,26 @@ import java.util.ArrayList;
 public class Scorecard{
 
     private Map<String, Integer> scorecard = new HashMap<>();
+    private int numYahtzees = 0;
 
     public Scorecard()
     {
-        scorecard.put("ones", 0);
-        scorecard.put("twos", 0);
-        scorecard.put("threes", 0);
-        scorecard.put("fours", 0);
-        scorecard.put("fives", 0);
-        scorecard.put("sixes", 0);
-        scorecard.put("three of a kind", 0);
-        scorecard.put("four of a kind", 0);
-        scorecard.put("small straight", 0);
-        scorecard.put("large straight", 0);
-        scorecard.put("full house", 0);
-        scorecard.put("yahtzee", 0);
-        scorecard.put("chance", 0);
+        scorecard.put("ones", -1);
+        scorecard.put("twos", -1);
+        scorecard.put("threes", -1);
+        scorecard.put("fours", -1);
+        scorecard.put("fives", -1);
+        scorecard.put("sixes", -1);
+        scorecard.put("three of a kind", -1);
+        scorecard.put("four of a kind", -1);
+        scorecard.put("small straight", -1);
+        scorecard.put("large straight", -1);
+        scorecard.put("full house", -1);
+        scorecard.put("yahtzee", -1);
+        scorecard.put("chance", -1);
         scorecard.put("top total", 0);
         scorecard.put("bottom total", 0);
+        
         
 
 
@@ -340,5 +342,81 @@ public class Scorecard{
                 finalVal = 25;
             }
             scorecard.put("full house", finalVal);
+        }
+
+        public void setYahtzee(ArrayList<Die> hand)
+        {
+        int ones=0;
+        int twos=0;
+        int threes=0;
+        int fours=0;
+        int fives=0;
+        int sixes=0; 
+        int finalVal = 0;
+        for(int j = 0; j < 5; j++)
+            {
+                if(hand.get(j).getValue()==1)
+                {
+                    ones++;
+                }
+            }
+        for(int j = 0; j < 5; j++)
+            {
+                if(hand.get(j).getValue()==2)
+                {
+                    twos++;
+                }
+            }
+        for(int j = 0; j < 5; j++)
+            {
+                if(hand.get(j).getValue()==3)
+                {
+                    threes++;
+                }
+            }
+            for(int j = 0; j < 5; j++)
+            {
+                if(hand.get(j).getValue()==4)
+                {
+                    fours++;
+                }
+            }
+            for(int j = 0; j < 5; j++)
+            {
+                if(hand.get(j).getValue()==5)
+                {
+                    fives++;
+                }
+            }
+            for(int j = 0; j < 5; j++)
+            {
+                if(hand.get(j).getValue()==6)
+                {
+                    sixes++;
+                }
+            }
+            if(ones==5||twos==5||threes==5||fours==5||fives==5||sixes==5)
+            {
+                if(numYahtzees == 0)
+                {
+                scorecard.put("yatzee", 50);
+                }
+                else if (numYahtzees <= 5)
+                {
+                scorecard.put("yatzee", scorecard.get("yahtzee") + 100);
+                }
+                numYahtzees++;
+            }
+            
+        }
+
+        public void setChance(ArrayList<Die> hand)
+        {
+            int finalVal = 0;
+            for(int i =0; i < 6; i++)
+            {
+                finalVal += hand.get(i).getValue();
+            }
+            scorecard.put("chance", finalVal);
         }
 }
