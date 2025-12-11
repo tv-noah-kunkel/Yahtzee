@@ -20,8 +20,10 @@ public class Player {
         
         hand.add(die);
     }
+    for(int i =0; i < 3; i++){
+        DicePrinter.print(hand);
    System.out.println("which dice would you like to hold (put 0 if none)");
-   String holding = scanner.nextLine();
+   String holding = scanner.nextLine(); 
    if(holding.contains("5"))
    {
     heldDice.add(hand.get(4));
@@ -42,7 +44,7 @@ public class Player {
    if(holding.contains("2"))
    {
     heldDice.add(hand.get(1));
-    hand.remove(1);
+    hand.remove(1);                                                                     
    }
     
    if(holding.contains("1"))
@@ -50,6 +52,13 @@ public class Player {
     heldDice.add(hand.get(0));
     hand.remove(0);
    }
+   System.out.println("Held Dice");
+   DicePrinter.print(heldDice);
+  
+}
+
+
+
 
     DicePrinter.print(hand);
     
