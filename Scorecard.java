@@ -428,39 +428,41 @@ public void printYahtzeeScorecard() {
 
         // --- Upper Section ---
         System.out.println("\n--- UPPER SECTION ---");
-        System.out.println("| Category         | Rule                         | Score |");
-        System.out.println("|------------------|------------------------------|-------|");
-        System.out.println("| Ones             | Sum of all 1s                | [     ]|");
-        System.out.println("| Twos             | Sum of all 2s                | [     ]|");
-        System.out.println("| Threes           | Sum of all 3s                | [     ]|");
-        System.out.println("| Fours            | Sum of all 4s                | [     ]|");
-        System.out.println("| Fives            | Sum of all 5s                | [     ]|");
-        System.out.println("| Sixes            | Sum of all 6s                | [     ]|");
-        System.out.println("|------------------|------------------------------|-------|");
-        System.out.println("| **SUBTOTAL** |                                  | [     ]|");
-        System.out.println("| **BONUS** | 35 if SUBTOTAL >= 63                | [     ]|");
-        System.out.println("| **UPPER TOTAL** | SUBTOTAL + BONUS              | [     ]|");
+        System.out.println("| Category| Slot    | Rule                         | Score |");
+        System.out.println("|---------|---------|------------------------------|-------|");
+        System.out.println("| ones    |    1    | Sum of all 1s                | [ "+scorecard.get("ones")+" ]|");
+        System.out.println("| twos    |    2    | Sum of all 2s                | [ "+scorecard.get("twos")+" ]|");
+        System.out.println("| threes  |    3    | Sum of all 3s                | [ "+scorecard.get("threes")+" ]|");
+        System.out.println("| fours   |    4    | Sum of all 4s                | [ "+scorecard.get("fours")+" ]|");
+        System.out.println("| fives   |    5    | Sum of all 5s                | [ "+scorecard.get("fives")+" ]|");
+        System.out.println("| sixes   |    6    | Sum of all 6s                | [ "+scorecard.get("sixes")+" ]|");
+        System.out.println("|---------|---------|------------------------------|-------|");
+        System.out.println("| **SUBTOTAL** |                                  | [ "+scorecard.get("top total")+" ]|");
+        System.out.println("| **BONUS** | 35 if SUBTOTAL >= 63                | [ "+scorecard.get("top bonus")+" ]|");
+        System.out.println("| **UPPER TOTAL** | SUBTOTAL + BONUS              | [ "+(int)(scorecard.get("top total")+scorecard.get("top bonus"))+" ]|");
         System.out.println("|------------------|------------------------------|-------|");
 
         // --- Lower Section ---
         System.out.println("\n--- LOWER SECTION ---");
-        System.out.println("| Category         | Rule                         | Score |");
+        System.out.println("| Category| Slot    | Rule                         | Score |");
+        System.out.println("|---------|---------|------------------------------|-------|");
+        System.out.println("| 3 of a Kind|   7  | Sum of all 5 dice               | [ "+scorecard.get("three of a kind")+" ]|");
+        System.out.println("| 4 of a Kind|   8  | Sum of all 5 dice               | [ "+scorecard.get("four of a kind")+" ]|");
+        System.out.println("| full House |   9  | 25 points                       | [ "+scorecard.get("full house")+" ]|");
+        System.out.println("| S straight |  10  | 30 points                       | [ "+scorecard.get("small straight")+" ]|");
+        System.out.println("| L straight |  11  | 40 points                       | [ "+scorecard.get("large straight")+" ]|");
+        System.out.println("| YAHTZEE    |  12  | 50 points                       | [ "+scorecard.get("yahtzee")+" ]|");
+        System.out.println("| chance     |  13  | Sum of all 5 dice               | [ "+scorecard.get("chance")+" ]|");
         System.out.println("|------------------|------------------------------|-------|");
-        System.out.println("| three of a Kind      | Sum of all 5 dice           | [ "+scorecard.get("three of a kind")+" ]|");
-        System.out.println("| four of a Kind      | Sum of all 5 dice            | [ "+scorecard.get("four of a kind")+" ]|");
-        System.out.println("| Full House       | 25 points                       | [ "+scorecard.get("full house")+" ]|");
-        System.out.println("| Small Straight   | 30 points (e.g., 1-2-3-4)       | [ "+scorecard.get("full house")+"     ]|");
-        System.out.println("| Large Straight   | 40 points (e.g., 1-2-3-4-5)     | [ "+scorecard.get("full house")+"    ]|");
-        System.out.println("| YAHTZEE          | 50 points                       | [ "+scorecard.get("full house")+"    ]|");
-        System.out.println("| Chance           | Sum of all 5 dice               | [ "+scorecard.get("full house")+"    ]|");
-        System.out.println("|------------------|------------------------------|-------|");
-        System.out.println("| **YAHTZEE BONUS**| 100 for each additional Yahtzee| [     ]|");
-        System.out.println("| **LOWER TOTAL** | Sum of all categories        | [     ]|");
+        System.out.println("| YAHTZEE BONUS|  14  | 100 for each additional Yahtzee| [ "+scorecard.get("yahtzee bonus")+" ]|");
+        System.out.println("| **LOWER TOTAL** | Sum of all categories        | [ "+scorecard.get("yahtzee")+" ]|");
         System.out.println("|------------------|------------------------------|-------|");
 
         // --- Grand Total ---
         System.out.println("\n--- GRAND TOTAL ---");
-        System.out.println("| **GRAND TOTAL** | UPPER TOTAL + LOWER TOTAL    | [     ]|");
-        System.out.println("=========================================");   
+        System.out.println("| **GRAND TOTAL** | UPPER TOTAL + LOWER TOTAL    | [ "+(int)(scorecard.get("top total") + scorecard.get("bottom total"))+" ]|");
+        System.out.println("=========================================");
+
+    
     }
 }
