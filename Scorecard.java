@@ -25,6 +25,7 @@ public class Scorecard{
         scorecard.put("chance", -1);
         scorecard.put("top total", 0);
         scorecard.put("bottom total", 0);
+        scorecard.put("bonus", 0                                 );
         
         
 
@@ -33,7 +34,7 @@ public class Scorecard{
 
     public void setOnes(ArrayList<Die> hand){
         int ones= 0;
-        for(int i = 1; i < hand.size()+1; i++)
+        for(int i = 0; i < hand.size(); i++)
         {
             if(hand.get(i).getValue()==1)
             {
@@ -46,7 +47,7 @@ public class Scorecard{
 
     public void setTwos(ArrayList<Die> hand){
         int k= 0;
-        for(int i = 1; i < hand.size()+1; i++)
+        for(int i = 0; i < hand.size(); i++)
         {
             if(hand.get(i).getValue()==2)
             {
@@ -58,7 +59,7 @@ public class Scorecard{
     }
     public void setThrees(ArrayList<Die> hand){
         int k= 0;
-        for(int i = 1; i < hand.size()+1; i++)
+        for(int i = 0; i < hand.size(); i++)
         {
             if(hand.get(i).getValue()==3)
             {
@@ -70,7 +71,7 @@ public class Scorecard{
     }
     public void setFours(ArrayList<Die> hand){
         int k= 0;
-        for(int i = 1; i < hand.size()+1; i++)
+        for(int i = 0; i < hand.size(); i++)
         {
             if(hand.get(i).getValue()==4)
             {
@@ -83,7 +84,7 @@ public class Scorecard{
 
     public void setFives(ArrayList<Die> hand){
         int k= 0;
-        for(int i = 1; i < hand.size()+1; i++)
+        for(int i = 0; i < hand.size(); i++)
         {
             if(hand.get(i).getValue()==5)
             {
@@ -95,7 +96,7 @@ public class Scorecard{
     }
     public void setSixes(ArrayList<Die> hand){
         int k= 0;
-        for(int i = 1; i < hand.size()+1; i++)
+        for(int i = 0; i < hand.size()+0 ; i++)
         {
             if(hand.get(i).getValue()==6)
             {
@@ -439,7 +440,7 @@ public void printYahtzeeScorecard() {
         System.out.println("|---------|---------|------------------------------|-------|");
         System.out.println("| **SUBTOTAL** |                                  | [ "+scorecard.get("top total")+" ]|");
         System.out.println("| **BONUS** | 35 if SUBTOTAL >= 63                | [ "+scorecard.get("top bonus")+" ]|");
-        System.out.println("| **UPPER TOTAL** | SUBTOTAL + BONUS              | [ "+(int)(scorecard.get("top total")+scorecard.get("top bonus"))+" ]|");
+        System.out.println("| **UPPER TOTAL** | SUBTOTAL + BONUS              | [ "+(int)(scorecard.get("top total")+scorecard.get("bonus"))+" ]|");
         System.out.println("|------------------|------------------------------|-------|");
 
         // --- Lower Section ---

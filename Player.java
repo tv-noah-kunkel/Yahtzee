@@ -13,6 +13,9 @@ public class Player {
     }
     DicePrinter DicePrinter = new DicePrinter();
     public void playTurn(){
+        boolean keepPlaying = true;
+        while(keepPlaying)
+        {
     Scanner scanner = new Scanner(System.in);
     for(int i = 0; i < 5; i++)
     {
@@ -64,10 +67,79 @@ public class Player {
     hand.addAll(heldDice);
     DicePrinter.print(hand);
     scorecard.printYahtzeeScorecard();
+    System.out.println("Which category do you want to use (enter slot number): ");
+    int slot = scanner.nextInt();
+    if(slot == 1)
+    {
+        scorecard.setOnes(hand);
+    }
+    else if(slot == 2)
+    {
+        scorecard.setTwos(hand);
+    }
+    else if(slot == 3)
+    {
+        scorecard.setThrees(hand);
+    }
+    else if(slot == 4)
+    {
+        scorecard.setFours(hand);
+    }
+     else if(slot == 5)
+    {
+        scorecard.setFives(hand);
+    }
+     else if(slot == 6)
+    {
+        scorecard.setSixes(hand);
+    }
+     else if(slot == 7)
+    {
+        scorecard.setThreeOfAKind(hand);
+    }
+     else if(slot == 8)
+    {
+        scorecard.setFourOfAKind(hand);   
+     }
+      else if(slot == 8)
+    {
+        scorecard.setFourOfAKind(hand);
+    }
+     else if(slot == 9)
+    {
+        scorecard.setFullHouse(hand);
+    }
+     else if(slot == 10)
+    {
+        scorecard.setSmallStraight(hand);
+    }
+     else if(slot == 11)
+    {
+        scorecard.setlargeStraight(hand);
+    }
+     else if(slot == 12)
+    {
+        scorecard.setYahtzee(hand);
+    }
+     else if(slot == 13)
+    {
+        scorecard.setChance(hand);
+    }
+    System.out.println("keep playing (y/n): ");
+    String playAgain = scanner.nextLine();
+    if(playAgain.equals("y"))
+    {
+        keepPlaying = true;
+    }
+    else
+    {
+        keepPlaying = false;
+    }
+    
     
     
     }
-                                                               
+}                                                         
 }
 
 
